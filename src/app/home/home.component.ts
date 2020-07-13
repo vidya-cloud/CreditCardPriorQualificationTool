@@ -53,7 +53,6 @@ export class HomeComponent implements OnInit {
     this.apiService.getCardTypeEligibleforCustomer(this.firstname.value, this.lastname.value,
       FormatDate(this.dateofbirth.value), this.annualincome.value).subscribe((data: any)=>{
         this.loading = false;
-        console.log(data);
         this.router.navigate(['/fetch-card'], data);
     })
   }
