@@ -1,0 +1,26 @@
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+html {
+  font-size: 14 px;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.box-shadow {
+  box-shadow: 0 .50rem .75rem rgba(0, 0, 0, .05);
+}
+
+a{
+  cursor: pointer;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #102b74;
+}

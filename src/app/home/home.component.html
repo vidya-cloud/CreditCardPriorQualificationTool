@@ -1,0 +1,72 @@
+<!-- main app container -->
+<div>
+  <h2>Check your eligibility. Could your credit card application be successful ?</h2>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <div class="form-row">
+      <div class="form-group col-2">
+          <label>Title</label>
+          <select formControlName="title" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.title.errors }">
+              <option value=""></option>
+              <option value="Mr">Mr</option>
+              <option value="Mrs">Mrs</option>
+              <option value="Miss">Miss</option>
+              <option value="Ms">Ms</option>
+          </select>
+          <div *ngIf="submitted && f.title.errors" class="invalid-feedback">
+              <div *ngIf="f.title.errors.required">Title is required</div>
+          </div>
+      </div>
+
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label class="bold">First Name</label>
+      <input type="text" formControlName="firstName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }" />
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+          <div *ngIf="f.firstName.errors.required">First Name is required</div>
+          <div *ngIf="f.firstName.errors.minlength">First Name should be of atleast 3 characters</div>
+          <div *ngIf="f.firstName.errors.maxlength">First Name should not exceed 16 characters</div>
+          <div *ngIf="f.firstName.errors.pattern">Fist Name should only contain characters</div>
+      </div>
+    </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Last Name</label>
+      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }" />
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
+          <div *ngIf="f.lastName.errors.minlength">Last Name should be of atleast 3 characters</div>
+          <div *ngIf="f.lastName.errors.maxlength">Last Name should not exceed 16 characters</div>
+          <div *ngIf="f.lastName.errors.pattern">Last Name should only contain characters</div>
+    </div>
+  </div>
+</div>
+  <div class="form-row">
+      <div class="form-group col-4">
+          <label>Date of Birth</label>
+          <input type="date" formControlName="dateofbirth" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.dateofbirth.errors }" />
+          <div *ngIf="submitted && f.dateofbirth.errors" class="invalid-feedback">
+              <div *ngIf="f.dateofbirth.errors.required">Date of birth is required</div>
+              <div *ngIf="f.dateofbirth.errors.validage">No credit cards available. Wait until you turn 18.</div>
+              <div *ngIf="f.dateofbirth.errors.required">Please enter a valid date</div>
+          </div>
+      </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-4">
+      <label>Annual Income</label>
+      <input type="text" formControlName="annualIncome" class="form-control" number [ngClass]="{ 'is-invalid': submitted && f.annualIncome.errors }" />
+      <div *ngIf="submitted && f.annualIncome.errors" class="invalid-feedback">
+          <div *ngIf="f.annualIncome.errors.required">Annual Income is required</div>
+          <div *ngIf="f.annualIncome.errors.pattern">Please enter numeric characters</div>
+          <div *ngIf="f.annualIncome.errors.maxlength">Annual Income should not exceed 8 digits</div>
+      </div>
+  </div>
+</div>
+  <div class="text-left">
+      <button class="btn btn-Secondary btn-lg mr-1 text-color">Submit</button>
+      <!-- <button class="btn btn-Secondary mr-1 text-color" type="reset" (click)="onReset()">Reset</button> -->
+  </div>
+</form>
+</div>

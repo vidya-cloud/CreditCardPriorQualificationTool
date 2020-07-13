@@ -1,0 +1,52 @@
+
+  <div class="modal-body">
+    <h1>Yay! We got an eligible Card for you.</h1>
+    <div class="modal-body row">
+      <div class="col-md-6">
+        <div class="container" >
+          <div class="jumbotron">
+              <h1>{{cardData.name}}</h1>
+              <ul>
+                <li>A personalised credit limit between £50 and £1,200</li>
+                <li>0% interest on purchases, for three months after you open your account</li>
+                <li>Price promise – 3% interest rate reduction if you make all your payments on time and stay within your credit limit for the first year. Keep it going in the second year and you’ll get another 2% reduction</li>
+              </ul>
+              <p>If you apply for a {{cardData.name}}, we’ll show you more information about how to get the most from your offer. The approval of your application depends on your financial circumstances and borrowing history, so do the terms you may be offered.</p>
+          </div>
+          <div class="jumbotron">
+            <dl class="row">
+              <dt class="col-sm-9">Representative</dt>
+              <dd class="col-sm-9">{{cardData.apr}} APR (variable)</dd>
+              <dt class="col-sm-9 text-truncate">Purchase rate p.a.</dt>
+              <dd class="col-sm-9">{{cardData.apr}} (variable)</dd>
+              <dt class="col-sm-9">Based on credit limit of</dt>
+              <dd class="col-sm-6">£30000</dd>
+          </dl>
+        </div>
+        </div>
+      </div>
+    <div class="col-md-6">
+      <!-- Your second column here -->
+      <p *ngIf="!cardData"><em>Loading...</em></p>
+  <div *ngIf="cardData">
+    
+    <div>
+      <div *ngIf="cardData.cardId === 'BAR'">
+        <div>
+          <img src="assets\img\Barclayscreditcard.png" />
+        </div>
+      </div>
+      <div *ngIf="cardData.cardId === 'VAN'">
+        <div>
+          <img src="assets\img\vanquiscreditcard.jpg" />
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+
+
+
+  
+
